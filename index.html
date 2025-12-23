@@ -23,11 +23,11 @@
       --radius: 18px;
       --radius-sm: 14px;
 
-      /* Oben: Textbreite */
+      /* Obere Inhaltsbreite (Text/AGB) */
       --max: 1120px;
 
-      /* Unten: Kalender deutlich breiter */
-      --cal-max: 1800px;
+      /* Kalenderbreite (größer als oben) */
+      --cal-max: 1600px;
 
       --pad: 18px;
     }
@@ -45,13 +45,14 @@
     a{ color: var(--primary); text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
-    /* ===== OBEN: normaler Content ===== */
+    /* ===== Standard Content Container (oben) ===== */
     .container{
       max-width: var(--max);
       margin: 0 auto;
       padding: 28px var(--pad) 18px;
     }
 
+    /* ===== HERO ===== */
     .hero{
       background: var(--card);
       border: 1px solid var(--border);
@@ -73,6 +74,7 @@
     h1{
       margin: 10px 0 8px;
       font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.3px;
     }
 
     .lead{
@@ -82,6 +84,7 @@
       font-size: 15px;
     }
 
+    /* ===== INFO / AGB BOX ===== */
     .info{
       margin-top: 18px;
       padding: 16px 18px;
@@ -98,6 +101,26 @@
 
     .info li{ margin: 6px 0; }
 
+    /* ===== CATEGORY CARDS ===== */
+    .categories{
+      margin-top: 14px;
+      display:grid;
+      gap:12px;
+    }
+
+    .cat{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+
+    .cat span{
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ===== ACTIONS ===== */
     .actions{
       display:flex;
       gap:12px;
@@ -108,12 +131,15 @@
     .btn{
       display:inline-flex;
       align-items:center;
+      gap:8px;
       padding: 10px 14px;
       border-radius: 12px;
       border:1px solid var(--border);
       background:#fff;
       color:var(--text);
+      font-size:14px;
       box-shadow: var(--shadow);
+      cursor:pointer;
       text-decoration:none;
     }
 
@@ -123,19 +149,28 @@
       border-color: var(--primary);
     }
 
-    /* ===== UNTEN: KALENDER (JETZT BREITER) ===== */
-    .calendar-wrap{
-      max-width: var(--cal-max);
-      margin: 20px auto 0;
-      padding: 0 8px 40px; /* << weniger Padding */
+    .btn.primary:hover{
+      background:#285f50;
+      text-decoration:none;
     }
 
-    @media (min-width: 1900px){
+    /* =========================
+       KALENDER WRAPPER (BREITER)
+       ========================= */
+    .calendar-wrap{
+      max-width: var(--cal-max);
+      margin: 18px auto 0;
+      padding: 0 var(--pad) 40px;
+    }
+
+    /* Auf sehr großen Screens fast Full-Width */
+    @media (min-width: 1700px){
       .calendar-wrap{
-        max-width: 96vw;
+        max-width: 95vw;
       }
     }
 
+    /* ===== RESERVATION SECTION ===== */
     .section{
       background:#fff;
       border:1px solid var(--border);
@@ -155,7 +190,7 @@
     iframe{
       border:0;
       width:100%;
-      min-height:950px; /* wirkt ruhiger bei mehr Breite */
+      min-height:900px; /* etwas mehr Höhe wirkt besser bei breiterem Layout */
       display:block;
       background:#fff;
     }
@@ -173,8 +208,9 @@
 
 <body>
 
-  <!-- OBEN -->
+  <!-- OBEN: Text bleibt schmal -->
   <div class="container">
+
     <section class="hero">
       <span class="badge">Reservation</span>
       <h1>Reservation Gemeinschaftsraum Frohalp</h1>
@@ -187,15 +223,48 @@
       <div class="info">
         <strong>Buchungskonditionen (AGB)</strong>
         <ul>
-          <li>Reservationen nur für <strong>Bewohner:innen der Siedlung Frohalp</strong></li>
-          <li>Mit der Reservation wird die <strong>Hausordnung</strong> akzeptiert</li>
-          <li>Name, Tag und Zustand im Übergabe-Protokoll eintragen</li>
-          <li>Stornierung bis max. 48 Stunden vor Reservation</li>
+          <li>Reservationen sind nur für <strong>Bewohner:innen der Siedlung Frohalp</strong> erlaubt.</li>
+          <li>Mit der <strong>Reservation</strong> wird die <strong>Hausordnung</strong> akzeptiert.</li>
+          <li>Im Übergabe-<strong>Protokoll</strong> sind <strong>Name, Tag und Zustand</strong> einzutragen.</li>
+          <li><strong>Stornierung</strong> bis max. <strong>48 Stunden</strong> vor Reservation möglich.</li>
         </ul>
       </div>
 
+      <div class="info">
+        <strong>Kategorien</strong>
+
+        <div class="categories">
+          <div class="cat"><strong>Genossenschaftsanlass</strong><br><span>gratis</span></div>
+
+          <div class="cat">
+            <strong>Privatanlass</strong><br>
+            <span>
+              CHF 10.– / Stunde oder pauschal CHF 125.– (13–24 Std.).<br>
+              In der Notiz angeben, bis wann der Raum am Folgetag genutzt wird (z. B. Aufräumen).<br>
+              Bezahlung per QR-Einzahlungsschein innert 10 Tagen.
+            </span>
+          </div>
+
+          <div class="cat"><strong>Vorstand / Siko</strong><br><span>gratis</span></div>
+
+          <div class="cat"><strong>Spezialnutzung</strong><br><span>spezielle Vereinbarung</span></div>
+
+          <div class="cat">
+            <strong>Spontanbuchung</strong><br>
+            <span>CHF 5.– / Stunde · 1–10 Stunden · max. 48 Stunden im Voraus</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info">
+        <strong>Doppelbuchungen</strong><br>
+        Grundsätzlich gilt die zuerst eingegangene Reservation, es gibt jedoch Ausnahmen.<br>
+        Anfragen bitte per E-Mail an
+        <a href="mailto:gemeinschaftsraum@bg-heimelig.ch">gemeinschaftsraum@bg-heimelig.ch</a>
+      </div>
+
       <div class="actions">
-        <a class="btn primary" href="Hausordnung_Gemeinschaftsraum_Frohalp.pdf" target="_blank">
+        <a class="btn primary" href="Hausordnung_Gemeinschaftsraum_Frohalp.pdf" target="_blank" rel="noopener">
           📄 Hausordnung ansehen
         </a>
         <a class="btn" href="Hausordnung_Gemeinschaftsraum_Frohalp.pdf" download>
@@ -203,15 +272,18 @@
         </a>
       </div>
     </section>
+
   </div>
 
-  <!-- UNTEN: BREITER KALENDER -->
+  <!-- UNTEN: Kalender wird BREITER -->
   <div class="calendar-wrap">
     <section class="section">
       <div class="section-head">Reservation – Datum &amp; Zeit auswählen</div>
 
       <iframe
         src="https://app.raumkalender.com/reservation/6938470759da4/Gemeinschaftsraum-Frohalp"
+        style="overflow:hidden; width:100%; min-height:900px;"
+        height="100%" width="100%" frameborder="0"
         loading="lazy">
       </iframe>
     </section>
