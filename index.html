@@ -158,36 +158,38 @@
       text-decoration:none;
     }
 
-    /* =========================
-       BREITER KALENDERBEREICH
-       ========================= */
-    .calendar-wrap{
-      max-width: 1600px;
-      margin: 26px auto 0;
-      padding: 0 18px;
-    }
+   /* =========================
+   KALENDER = GLEICHE BREITE WIE OBEN
+   ========================= */
+.calendar-wrap{
+  max-width: var(--max);
+  margin: 26px auto 0;
+  padding: 0 18px;
+}
 
-    @media (min-width: 1600px){
-      .calendar-wrap{
-        max-width: 95vw;
-      }
-    }
+.section{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
 
-    .section{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
+.section-head{
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--muted);
+  background:#fafcfb;
+  border-bottom:1px solid var(--border);
+}
 
-    .section-head{
-      padding: 14px 16px;
-      font-size: 13px;
-      color: var(--muted);
-      background:#fafcfb;
-      border-bottom:1px solid var(--border);
-    }
+iframe{
+  border:0;
+  width:100%;
+  min-height:800px;
+  display:block;
+  background:#fff;
+}
 
     iframe{
       border:0;
