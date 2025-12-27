@@ -94,6 +94,29 @@
 
     .info li{ margin: 6px 0; }
 
+    /* ===== Kategorien ===== */
+    .cats{
+      margin-top: 18px;
+      display:grid;
+      gap:12px;
+    }
+    .cat{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .cat .title{
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .cat .meta{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .cat .meta b{ color: var(--text); }
+
     /* ===== ACTIONS ===== */
     .actions{
       display:flex;
@@ -110,6 +133,9 @@
       color:var(--text);
       box-shadow: var(--shadow);
       text-decoration:none;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
     }
 
     .btn.primary{
@@ -118,7 +144,7 @@
       border-color: var(--primary);
     }
 
-    /* ===== KALENDER – BÜNDIG ===== */
+    /* ===== KALENDER ===== */
     .section{
       margin-top: 26px;
       background:#fff;
@@ -136,7 +162,6 @@
       border-bottom:1px solid var(--border);
     }
 
-    /* WICHTIG: kein Padding, volle Breite */
     .iframe-wrap{
       padding: 0;
       margin: 0;
@@ -185,12 +210,75 @@
         </ul>
       </div>
 
+      <!-- KATEGORIEN (aus Nutzungskonzept) -->
+      <div class="info">
+        <strong>Kategorien</strong><br>
+        <span style="color:var(--muted); font-size:13px;">
+          Übersicht der Nutzungsarten inkl. Dauer/Kosten und Reservierungsfrist.
+        </span>
+
+        <div class="cats">
+          <div class="cat">
+            <div class="title">Genossenschaftsanlass</div>
+            <div class="meta">
+              <b>Beschreibung:</b> Veranstaltungen von Genossenschafter:innen für die Genossenschaft (z. B. Samichlaus, Flohmi, Kranzen).<br>
+              <b>Dauer:</b> individuell<br>
+              <b>Kosten:</b> gratis (in Absprache mit der SiKo)<br>
+              <b>Reservation:</b> spätestens <b>6 Monate</b> im Voraus
+            </div>
+          </div>
+
+          <div class="cat">
+            <div class="title">Privatanlass</div>
+            <div class="meta">
+              <b>Beschreibung:</b> Geburtstage, Familienfeiern, Brunch, Apéros<br>
+              <b>Dauer:</b> 1 bis 24 Stunden<br>
+              <b>Kosten:</b> CHF 10.– / Stunde (max. CHF 125.–)<br>
+              <b>Bezahlung:</b> Bar bis CHF 20.– in vorhandene Kasse, höhere Beträge innert 10 Tagen per QR-Einzahlungsschein<br>
+              <b>Reservation:</b> spätestens <b>2 Monate</b> im Voraus
+            </div>
+          </div>
+
+          <div class="cat">
+            <div class="title">Vorstand / SiKo</div>
+            <div class="meta">
+              <b>Beschreibung:</b> Sitzungen / Treffen für Vorstand und SiKo<br>
+              <b>Dauer:</b> individuell<br>
+              <b>Kosten:</b> gratis
+            </div>
+          </div>
+
+          <div class="cat">
+            <div class="title">Spezialnutzung</div>
+            <div class="meta">
+              <b>Beschreibung:</b> Angebote aus der Genossenschaft für die Genossenschaft. Keine gewinnorientierten Tätigkeiten; Einnahmen nur in verhältnismässiger, kostendeckender Höhe.<br>
+              <b>Konditionen:</b> Zulassung/Details entscheidet der Vorstand im Einzelfall. Bei regelmässigen Angeboten haben Vermietungen Vorrang.<br>
+              <b>Reservation:</b> spätestens <b>1 Monat</b> im Voraus
+            </div>
+          </div>
+
+          <div class="cat">
+            <div class="title">Spontanbuchung</div>
+            <div class="meta">
+              <b>Beschreibung:</b> Wenn der Raum frei ist, kann er spontan genutzt werden.<br>
+              <b>Dauer:</b> 1 bis 10 Stunden<br>
+              <b>Kosten:</b> CHF 5.– / Stunde<br>
+              <b>Bezahlung:</b> Bar in vorhandene Kasse<br>
+              <b>Spezialkondition:</b> Reservation max. <b>48 Stunden</b> im Voraus
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="actions">
-        <a class="btn primary" href="Hausordnung_Gemeinschaftsraum_Frohalp.pdf" target="_blank">
+        <a class="btn primary" href="Hausordnung_Gemeinschaftsraum_Frohalp.pdf" target="_blank" rel="noopener">
           📄 Hausordnung ansehen
         </a>
         <a class="btn" href="Hausordnung_Gemeinschaftsraum_Frohalp.pdf" download>
           ⬇️ Hausordnung herunterladen
+        </a>
+        <a class="btn" href="sandbox:/mnt/data/20251213-Gemeinschaftsraum_Nutzungskonzept_ENDVERSION.docx" target="_blank" rel="noopener">
+          📘 Nutzungskonzept öffnen
         </a>
       </div>
     </section>
